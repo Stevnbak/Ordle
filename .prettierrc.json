@@ -1,0 +1,8 @@
+{
+    "bracketSpacing": false,
+    "quoteProps": "consistent",
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "printWidth": 250
+}

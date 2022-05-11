@@ -1,0 +1,44 @@
+.page {
+    min-height: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #3b4f54;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #627377;
+    width: 100%;
+    font-size: 2vh;
+    padding: 0px;
+    margin: 0px;
+}
+
+.wordContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35vh;
+    height: 47.5vh;
+    background-color: #2d393b;
+    border-radius: 3vh;
+}
+
+.popup {
+    position: fixed;
+    visibility: hidden;
+    width: 65vh;
+    height: 50vh;
+    top: 50%;
+    margin-top: -32.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2d393bc9;
+    border-radius: 3vh;
+}
