@@ -10,5 +10,4 @@ function checkWordEligibility(word) {
 function getNewWord() {
     const date = new Date(Date.now());
     correctWord = generatedWords[date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear()].toUpperCase();
-    console.log(correctWord);
 }
