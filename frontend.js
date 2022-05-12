@@ -6,17 +6,29 @@ var currentWord = '';
 //Load
 function onLoad() {
     playing = true;
+    //Setup guesses
     for (word in guesses) {
         guesses[word].innerHTML = '<a class="empty"> </a><a class="empty"> </a><a class="empty"> </a><a class="empty"> </a><a class="empty"> </a>';
+    }
+    //Setup keyboard
+    let alphabet = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'å', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'æ', 'ø', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Backspace', 'Enter'];
+    for (letter in alphabet) {
+        let displayKey = alphabet[letter] == 'Backspace' ? '␡' : alphabet[letter] == 'Enter' ? '✅' : alphabet[letter].toUpperCase();
+        document.getElementById('keyboard').innerHTML += '<a onClick="getInput(' + "'" + alphabet[letter] + "'" + ')" id="key-' + alphabet[letter].toUpperCase() + '"class="empty">' + displayKey + '</a>';
     }
     getNewWord();
 }
 
 //Input
 document.addEventListener('keydown', function (event) {
+    getInput(event.key);
+});
+
+function getInput(key) {
+    //console.log('Key: ' + key + ' | CurrentLetter: ' + currentLetter + ' | CurrentGuess: ' + currentGuess);
     if (!playing) return;
     //Delete letter
-    if (event.key === 'Backspace') {
+    if (key === 'Backspace') {
         if (currentLetter > 0) {
             currentLetter -= 1;
             currentWord = currentWord.slice(0, currentWord.length - 1);
@@ -26,7 +38,7 @@ document.addEventListener('keydown', function (event) {
     }
 
     //Guess word
-    if (event.key === 'Enter') {
+    if (key === 'Enter') {
         if (currentWord.length != 5 || !checkWordEligibility(currentWord)) {
             console.log('Word not long enough or not eligible!');
             return;
@@ -35,13 +47,17 @@ document.addEventListener('keydown', function (event) {
         //Check letters
         for (letter in currentWord.split('')) {
             let answer = checkLetter(currentWord.split('')[letter], letter);
+            console.log('key-' + currentWord.split('')[letter]);
             if (answer == 0) {
                 guesses[currentGuess].childNodes[letter].setAttribute('class', 'wrong');
+                document.getElementById('key-' + currentWord.split('')[letter]).setAttribute('class', 'wrong');
             } else if (answer == 1) {
                 guesses[currentGuess].childNodes[letter].setAttribute('class', 'partly');
+                document.getElementById('key-' + currentWord.split('')[letter]).setAttribute('class', 'partly');
             } else if (answer == 2) {
                 numOfCorrect += 1;
                 guesses[currentGuess].childNodes[letter].setAttribute('class', 'correct');
+                document.getElementById('key-' + currentWord.split('')[letter]).setAttribute('class', 'correct');
             } else {
                 console.log('Letter check error!');
             }
@@ -64,11 +80,11 @@ document.addEventListener('keydown', function (event) {
 
     //Add letter to current word
     if (currentWord.length < 5) {
-        currentWord += event.key.toUpperCase();
+        currentWord += key.toUpperCase();
         currentLetter += 1;
         guesses[currentGuess].childNodes[currentLetter - 1].innerHTML = currentWord.charAt(currentWord.length - 1);
     }
-});
+}
 
 //Check letter
 function checkLetter(letter, location) {

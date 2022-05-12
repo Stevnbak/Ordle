@@ -28,6 +28,19 @@
     border-radius: 3vh;
 }
 
+.keyboard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 70vh;
+    height: 25vh;
+    background-color: #2d393b;
+    border-radius: 3vh;
+}
+
 .popup {
     position: fixed;
     visibility: hidden;
