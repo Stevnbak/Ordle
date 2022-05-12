@@ -1,36 +1,98 @@
+/*Basic general*/
 .word {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-
 .empty,
 .wrong,
 .partly,
 .correct {
-    width: 5vh;
-    height: 6vh;
+    width: 2.5vw;
+    height: 3.5vw;
     border-radius: 10%;
-    margin: 0.5vh;
-    background-color: white;
+    margin: 0.4vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2pc;
     font-weight: bold;
+    font-size: 2.5vw;
 }
 .empty {
-    background-color: #828282;
+    background-color: var(--empty-color);
 }
-
 .wrong {
-    background-color: #464646;
+    background-color: var(--wrong-color);
 }
 
 .partly {
-    background-color: #fff27b;
+    background-color: var(--partly-color);
 }
 
 .correct {
-    background-color: #4dff5b;
+    background-color: var(--correct-color);
+}
+/*FullHD*/
+@media only screen and (min-width: 1350px) {
+    .empty,
+    .wrong,
+    .partly,
+    .correct {
+        width: 2.5vw;
+        height: 3.5vw;
+        border-radius: 10%;
+        margin: 0.4vw;
+        font-size: 2.5vw;
+    }
+    #key-ENTER {
+        font-size: 1.75vw;
+    }
+}
+/*HalfHD*/
+@media only screen and (min-width: 900px) and (max-width: 1350px) {
+    .empty,
+    .wrong,
+    .partly,
+    .correct {
+        width: 3.5vw;
+        height: 4.5vw;
+        border-radius: 10%;
+        margin: 0.5vw;
+        font-size: 3vw;
+    }
+    #key-ENTER {
+        font-size: 2vw;
+    }
+}
+/*Big-Mobile*/
+@media only screen and (min-width: 650px) and (max-width: 900px) {
+    .empty,
+    .wrong,
+    .partly,
+    .correct {
+        width: 4.5vw;
+        height: 6.25vw;
+        border-radius: 10%;
+        margin: 0.6vw;
+        font-size: 4vw;
+    }
+    #key-ENTER {
+        font-size: 3vw;
+    }
+}
+/*Mobile*/
+@media only screen and (max-width: 650px) {
+    .empty,
+    .wrong,
+    .partly,
+    .correct {
+        width: 7vw;
+        height: 9vw;
+        border-radius: 10%;
+        margin: 0.75vw;
+        font-size: 6vw;
+    }
+    #key-ENTER {
+        font-size: 4.5vw;
+    }
 }

@@ -1,33 +1,37 @@
-.page {
-    min-height: 900px;
+/*Basic general*/
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
+:root {
+    --correct-color: #4dff5b;
+    --wrong-color: #464646;
+    --partly-color: #fff27b;
+    --empty-color: #828282;
+}
+.body {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     background-color: #3b4f54;
+    font-family: 'PT Sans', sans-serif;
+    margin: 0;
+    min-height: 100vh;
 }
-
 .header {
     display: flex;
     flex-direction: row;
     justify-content: center;
     background-color: #627377;
     width: 100%;
-    font-size: 2vh;
-    padding: 0px;
-    margin: 0px;
 }
-
+.header h1 {
+    margin: 0;
+}
 .wordContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 35vh;
-    height: 47.5vh;
     background-color: #2d393b;
-    border-radius: 3vh;
 }
-
 .keyboard {
     display: flex;
     flex-direction: row;
@@ -35,23 +39,139 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    width: 70vh;
-    height: 25vh;
     background-color: #2d393b;
-    border-radius: 3vh;
 }
-
 .popup {
     position: fixed;
     visibility: hidden;
-    width: 65vh;
-    height: 50vh;
-    top: 50%;
-    margin-top: -32.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #2d393bc9;
-    border-radius: 3vh;
+    background-color: #2d393bda;
+}
+/*FullHD*/
+@media only screen and (min-width: 1350px) {
+    .header {
+        height: 4.5vw;
+    }
+    .header h1 {
+        font-size: 4vw;
+    }
+    .wordContainer {
+        width: 17.5vw;
+        height: 27.5vw;
+        border-radius: 1.5vw;
+    }
+    .keyboard {
+        width: 37.5vw;
+        height: 14vw;
+        border-radius: 1.5vw;
+    }
+    .popup {
+        width: 35vw;
+        height: 50vh;
+        margin-top: 25vh;
+        border-radius: 2vw;
+    }
+    .popup h2 {
+        font-size: 3.5vw;
+    }
+    .popup p {
+        font-size: 1.5vw;
+    }
+}
+/*HalfHD*/
+@media only screen and (min-width: 900px) and (max-width: 1350px) {
+    .header {
+        height: 4vw;
+    }
+    .header h1 {
+        font-size: 3.5vw;
+    }
+    .wordContainer {
+        width: 25vw;
+        height: 35vw;
+        border-radius: 2vw;
+    }
+    .keyboard {
+        width: 50vw;
+        height: 20vw;
+        border-radius: 2vw;
+    }
+    .popup {
+        width: 35vw;
+        height: 40vh;
+        margin-top: 25vh;
+        border-radius: 2vw;
+    }
+    .popup h2 {
+        font-size: 4vw;
+    }
+    .popup p {
+        font-size: 2vw;
+    }
+}
+/*Big-Mobile*/
+@media only screen and (min-width: 650px) and (max-width: 900px) {
+    .header {
+        height: 6vw;
+    }
+    .header h1 {
+        font-size: 5vw;
+    }
+    .wordContainer {
+        width: 32.5vw;
+        height: 47.5vw;
+        border-radius: 3vw;
+    }
+    .keyboard {
+        width: 65vw;
+        height: 27.5vw;
+        border-radius: 3vw;
+    }
+    .popup {
+        width: 35vw;
+        height: 35vh;
+        margin-top: 25vh;
+        border-radius: 2vw;
+    }
+    .popup h2 {
+        font-size: 5vw;
+    }
+    .popup p {
+        font-size: 2vw;
+    }
+}
+/*Mobile*/
+@media only screen and (max-width: 650px) {
+    .header {
+        height: 10vw;
+    }
+    .header h1 {
+        font-size: 7vw;
+    }
+    .wordContainer {
+        width: 47.5vw;
+        height: 67.5vw;
+        border-radius: 4vw;
+    }
+    .keyboard {
+        width: 95vw;
+        height: 37.5vw;
+        border-radius: 4vw;
+    }
+    .popup {
+        width: 40vw;
+        height: 35vh;
+        margin-top: 25vh;
+        border-radius: 2vw;
+    }
+    .popup h2 {
+        font-size: 6.5vw;
+    }
+    .popup p {
+        font-size: 3.5vw;
+        margin: 1vw;
+    }
 }

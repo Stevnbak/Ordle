@@ -3,6 +3,7 @@ var playing = false;
 var currentLetter = 0;
 var currentGuess = 0;
 var currentWord = '';
+
 //Load
 function onLoad() {
     playing = true;
@@ -47,13 +48,12 @@ function getInput(key) {
         //Check letters
         for (letter in currentWord.split('')) {
             let answer = checkLetter(currentWord.split('')[letter], letter);
-            console.log('key-' + currentWord.split('')[letter]);
             if (answer == 0) {
                 guesses[currentGuess].childNodes[letter].setAttribute('class', 'wrong');
-                document.getElementById('key-' + currentWord.split('')[letter]).setAttribute('class', 'wrong');
+                if (document.getElementById('key-' + currentWord.split('')[letter]).className == 'empty') document.getElementById('key-' + currentWord.split('')[letter]).setAttribute('class', 'wrong');
             } else if (answer == 1) {
                 guesses[currentGuess].childNodes[letter].setAttribute('class', 'partly');
-                document.getElementById('key-' + currentWord.split('')[letter]).setAttribute('class', 'partly');
+                if (document.getElementById('key-' + currentWord.split('')[letter]).className != 'correct') document.getElementById('key-' + currentWord.split('')[letter]).setAttribute('class', 'partly');
             } else if (answer == 2) {
                 numOfCorrect += 1;
                 guesses[currentGuess].childNodes[letter].setAttribute('class', 'correct');
@@ -86,18 +86,11 @@ function getInput(key) {
     }
 }
 
-//Check letter
-function checkLetter(letter, location) {
-    if (correctWord.charAt(location) == letter) return 2;
-    else if (correctWord.includes(letter)) return 1;
-    else return 0;
-}
-
 //Correct word
 function completionWin() {
     console.log('Answer is correct');
     document.getElementById('popup-title').innerHTML = 'Tillykke!';
-    document.getElementById('popup-description').innerHTML = 'Dagens ord var "' + correctWord.toLowerCase() + '".';
+    document.getElementById('popup-description').innerHTML = 'Du gættede dagens ord som var "' + correctWord.toLowerCase() + '".';
     document.getElementById('popup').style.visibility = 'visible';
     playing = false;
 }
