@@ -50,6 +50,16 @@
     justify-content: center;
     background-color: #2d393bda;
 }
+.popup h2 {
+    margin: 0;
+}
+#popup-stats td {
+    border: 0.1vw solid #ddd;
+    padding: 0.1vw;
+    width: 7.5vw;
+    height: 0.5vw;
+    text-align: center;
+}
 /*FullHD*/
 @media only screen and (min-width: 1350px) {
     .header {
@@ -70,7 +80,7 @@
     }
     .popup {
         width: 35vw;
-        height: 50vh;
+        height: 25vw;
         margin-top: 25vh;
         border-radius: 2vw;
     }
@@ -101,7 +111,7 @@
     }
     .popup {
         width: 35vw;
-        height: 40vh;
+        height: 40vw;
         margin-top: 25vh;
         border-radius: 2vw;
     }
@@ -132,7 +142,7 @@
     }
     .popup {
         width: 35vw;
-        height: 35vh;
+        height: 50vw;
         margin-top: 25vh;
         border-radius: 2vw;
     }
@@ -163,7 +173,7 @@
     }
     .popup {
         width: 40vw;
-        height: 35vh;
+        height: 70vw;
         margin-top: 25vh;
         border-radius: 2vw;
     }
