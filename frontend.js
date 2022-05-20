@@ -87,7 +87,7 @@ function completionLose() {
     console.log('Max guesses reached!');
     setCookie('completion', 'fail', 1);
     if (getCookie('wordsPlayed') == '') setCookie('wordsPlayed', 0, 365);
-    setCookie('wordsPlayed', 1, 365);
+    setCookie('wordsPlayed', parseInt(getCookie('wordsPlayed')) + 1, 365);
     stats();
     document.getElementById('popup-title').innerHTML = 'Prøv igen i morgen!';
     document.getElementById('popup-description').innerHTML = 'Dagens ord var "' + correctWord.toLowerCase() + '".';
