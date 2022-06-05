@@ -4,6 +4,7 @@ var currentLetter = 0;
 var currentGuess = 0;
 var currentWord = '';
 var statistic = {};
+const alphabet = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'å', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'æ', 'ø', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Backspace', 'Enter'];
 
 //Load
 function onLoad() {
@@ -11,7 +12,6 @@ function onLoad() {
     playing = true;
     getNewWord();
     //Setup keyboard
-    let alphabet = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'å', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'æ', 'ø', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Backspace', 'Enter'];
     for (letter in alphabet) {
         let displayKey = alphabet[letter] == 'Backspace' ? '␡' : alphabet[letter] == 'Enter' ? '✅' : alphabet[letter].toUpperCase();
         document.getElementById('keyboard').innerHTML += '<a onClick="getInput(' + "'" + alphabet[letter] + "'" + ')" id="key-' + alphabet[letter].toUpperCase() + '"class="empty">' + displayKey + '</a>';
@@ -41,6 +41,7 @@ document.addEventListener('keydown', function (event) {
 function getInput(key) {
     //console.log('Key: ' + key + ' | CurrentLetter: ' + currentLetter + ' | CurrentGuess: ' + currentGuess);
     if (!playing) return;
+    if (!alphabet.includes(key)) return;
     //Delete letter
     if (key === 'Backspace') {
         if (currentLetter > 0) {
